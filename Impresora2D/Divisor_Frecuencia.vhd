@@ -9,15 +9,13 @@ end Divisor_Frecuencia;
 architecture arq_Divisor_Frecuencia of Divisor_Frecuencia is
 
 constant repeticion : integer := 5208;
---Baudios = 9600 bit/s
-
 shared variable contador : integer := repeticion;
 
 begin
 process begin
 	wait until rising_edge(clk);
+	Salida <= '0';
 	if contador > 0 then
-		Salida <= '0';
 		contador := contador - 1;
 	else
 		Salida <= '1';
@@ -25,5 +23,3 @@ process begin
 	end if;
 end process;
 end arq_Divisor_Frecuencia;
-
-

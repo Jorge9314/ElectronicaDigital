@@ -21,23 +21,22 @@ component RS232
 				Mensaje_8bits : out std_logic_vector (7 downto 0) := "00000000"
 			);
 end component;
-signal comoustedquiera : std_logic_vector (7 downto 0) := "00000000";
-signal comoustedquiera1 : std_logic;
+signal inputSignal : std_logic_vector (7 downto 0) := "00000000";
+signal ActivateSignal : std_logic;
 
 begin
 	RS232_1 : RS232 
 	port map( 
 		CLK => CLK,
 		-- Transmision
-		Entrada_8bits => comoustedquiera,
-		Actiador_Envio_Mensaje => comoustedquiera1,
+		Entrada_8bits => inputSignal,
+		Activador_Envio_Mensaje => ActivateSignal,
 		Salida_1bit => Devuelvo,
 		-- Recepcion
 		Entrada_1bit => Recibo,
-		Activador_Entrega_Mensaje => comoustedquiera1,
-		Mensaje_8bits => comoustedquiera
+		Activador_Entrega_Mensaje => ActivateSignal,
+		Mensaje_8bits => inputSignal
 	);
 
 
 end arq_Ekko;
-
