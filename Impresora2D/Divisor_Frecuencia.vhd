@@ -14,8 +14,8 @@ shared variable contador : integer := repeticion;
 begin
 process begin
 	wait until rising_edge(clk);
-	Salida <= '0';
 	if contador > 0 then
+		Salida <= '0';
 		contador := contador - 1;
 	else
 		Salida <= '1';
@@ -23,3 +23,4 @@ process begin
 	end if;
 end process;
 end arq_Divisor_Frecuencia;
+
