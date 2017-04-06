@@ -2,8 +2,7 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
 entity RS232 is
-    Port ( 
-			  clk : in  STD_LOGIC;
+    Port ( clk : in  STD_LOGIC;
 				-- Trasmisor --
            Entrada_8bits : in  STD_LOGIC_VECTOR (7 downto 0);
            Activador_Envio_Mensaje : in  STD_LOGIC;
@@ -11,8 +10,7 @@ entity RS232 is
 				-- Receptor --
            Entrada_1bit : in  STD_LOGIC;
            Mensaje_8bits : out  STD_LOGIC_VECTOR (7 downto 0) := "00000000";
-           Activador_Entrega_Mensaje : out  STD_LOGIC := '0'
-			  );
+           Activador_Entrega_Mensaje : out  STD_LOGIC := '0');
 end RS232;
 
 architecture arq_RS232 of RS232 is
@@ -26,7 +24,6 @@ end component;
 
 component Reception_8bits
 	Port(
-		clk : in  STD_LOGIC;
 		Divisor_Frecuencia : in  STD_LOGIC;
       Entrada : in  STD_LOGIC;
       Mensaje : out  STD_LOGIC_VECTOR (7 downto 0);
@@ -36,15 +33,14 @@ end component;
 
 component Transmission_8bits
 	Port(
-		clk : in  STD_LOGIC;
 		Divisor_Frecuencia : in  STD_LOGIC;
       Entrada : in  STD_LOGIC_VECTOR (7 downto 0);
-      Activador_Envio_Mensaje : in  STD_LOGIC;
+      Activo : in  STD_LOGIC;
       Salida : out  STD_LOGIC
 		);
 end component;
 
-signal Divisor_FrecuenciaAUX : std_logic;
+signal Divisor_FrecuenciaAUX : std_logic := '1';
 
 begin
 
@@ -56,7 +52,6 @@ Divisor_Frecuencia1 : Divisor_Frecuencia
 
 Reception_8bits1 : Reception_8bits
 	Port map(
-		clk => clk,
 		Divisor_Frecuencia => Divisor_FrecuenciaAUX,
       Entrada => Entrada_1bit,
       Mensaje => Mensaje_8bits,
@@ -65,10 +60,9 @@ Reception_8bits1 : Reception_8bits
 
 Transmission_8bits1 : Transmission_8bits
 	Port map(
-		clk => clk,
 		Divisor_Frecuencia => Divisor_FrecuenciaAUX,
       Entrada => Entrada_8bits,
-      Activador_Envio_Mensaje => Activador_Envio_Mensaje,
+      Activo => Activador_Envio_Mensaje,
       Salida => Salida_1bit
 	);
 

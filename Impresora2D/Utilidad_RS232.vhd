@@ -37,4 +37,3 @@ begin
            Activador_Entrega_Mensaje => Activador
 	);
 end arq_Utilidad_RS232;
-
