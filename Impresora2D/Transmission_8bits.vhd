@@ -38,88 +38,56 @@ process begin
 			end if;
 		when "0001" =>
 			if Entrada(7) = '1' then
-				if not ParidadPAR then
-					ParidadPAR <= True;	-- Es IMPAR
-				else
-					ParidadPAR <= False;	-- Es PAR
-				end if;
+					ParidadPAR <= not ParidadPar;	-- Es IMPAR
 			end if;
 			Salida <= Entrada(7);
 			estado <= "0010";
 			
 		when "0010" =>
 			if Entrada(6) = '1' then
-				if not ParidadPAR then
-					ParidadPAR <= True;	-- Es IMPAR
-				else
-					ParidadPAR <= False;	-- Es PAR
-				end if;
+					ParidadPAR <= not ParidadPar;	-- Es IMPAR
 			end if;
 			Salida <= Entrada(6);
 			estado <= "0011";
 			
 		when "0011" =>
 			if Entrada(5) = '1' then
-				if not ParidadPAR then
-					ParidadPAR <= True;	-- Es IMPAR
-				else
-					ParidadPAR <= False;	-- Es PAR
-				end if;
+					ParidadPAR <= not ParidadPar;	-- Es IMPAR
 			end if;
 			Salida <= Entrada(5);
 			estado <= "0100";
 			
 		when "0100" =>
 			if Entrada(4) = '1' then
-				if not ParidadPAR then
-					ParidadPAR <= True;	-- Es IMPAR
-				else
-					ParidadPAR <= False;	-- Es PAR
-				end if;
+					ParidadPAR <= not ParidadPar;	-- Es IMPAR
 			end if;
 			Salida <= Entrada(4);
 			estado <= "0101";
 			
 		when "0101" =>
 			if Entrada(3) = '1' then
-				if not ParidadPAR then
-					ParidadPAR <= True;	-- Es IMPAR
-				else
-					ParidadPAR <= False;	-- Es PAR
-				end if;
+				ParidadPAR <= not ParidadPar;	-- Es IMPAR
 			end if;
 			Salida <= Entrada(3);
 			estado <= "0111";
 			
 		when "0111" =>
 			if Entrada(2) = '1' then
-				if not ParidadPAR then
-					ParidadPAR <= True;	-- Es IMPAR
-				else
-					ParidadPAR <= False;	-- Es PAR
-				end if;
+				ParidadPAR <= not ParidadPar;	-- Es IMPAR
 			end if;
 			Salida <= Entrada(2);
 			estado <= "1000";
 			
 		when "1000" =>
 			if Entrada(1) = '1' then
-				if not ParidadPAR then
-					ParidadPAR <= True;	-- Es IMPAR
-				else
-					ParidadPAR <= False;	-- Es PAR
-				end if;
+				ParidadPAR <= not ParidadPar;	-- Es IMPAR
 			end if;
 			Salida <= Entrada(1);
 			estado <= "1001";
 			
 		when "1001" =>
 			if Entrada(0) = '1' then
-				if not ParidadPAR then
-					ParidadPAR <= True;	-- Es IMPAR
-				else
-					ParidadPAR <= False;	-- Es PAR
-				end if;
+				ParidadPAR <= not ParidadPar;	-- Es IMPAR
 			end if;
 			Salida <= Entrada(0);
 			estado <= "1011";
